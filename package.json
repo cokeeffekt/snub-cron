@@ -1,6 +1,6 @@
 {
   "name": "snub-cron",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "cron middleware for snub",
   "main": "snub-cron.js",
   "scripts": {
