@@ -1,4 +1,3 @@
-
 const cron = require('node-cron');
 
 module.exports = function (config) {
@@ -14,11 +13,11 @@ module.exports = function (config) {
       tracked[namespace] = {
         namespace,
         cronExpression,
-        cron: cron.schedule(cron, _ => {
+        cron: cron.schedule(cronExpression, _ => {
           snub.redis.sadd('_snub-cron:schedules', namespace);
           setTimeout(async _ => {
             if (!await snub.redis.srem('_snub-cron:schedules', namespace)) return;
-            snub.mono('cron:' + namespace);
+            snub.mono('cron:' + namespace).send();
           }, config.driftMs);
         })
       };
