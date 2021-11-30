@@ -1,9 +1,12 @@
 const cron = require('node-cron');
 
 module.exports = function (config) {
-  config = Object.assign({
-    driftMs: 1000 * 60,
-  }, config || {});
+  config = Object.assign(
+    {
+      driftMs: 1000 * 60,
+    },
+    config || {}
+  );
 
   var tracked = {};
   return function (snub) {
@@ -13,13 +16,14 @@ module.exports = function (config) {
       tracked[namespace] = {
         namespace,
         cronExpression,
-        cron: cron.schedule(cronExpression, _ => {
+        cron: cron.schedule(cronExpression, (_) => {
           snub.redis.sadd('_snub-cron:schedules', namespace);
-          setTimeout(async _ => {
-            if (!await snub.redis.srem('_snub-cron:schedules', namespace)) return;
+          setTimeout(async (_) => {
+            if (!(await snub.redis.srem('_snub-cron:schedules', namespace)))
+              return;
             snub.mono('cron:' + namespace).send();
           }, config.driftMs);
-        })
+        }),
       };
     };
 
