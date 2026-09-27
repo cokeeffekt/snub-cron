@@ -4,7 +4,7 @@ Cron middleware for [snub](https://github.com/cokeeffekt/snub). Register a
 schedule on every instance of your app and each tick is emitted onto the bus
 once, to one listener.
 
-Requires Node 20 or newer, `snub` 5 and Redis.
+Requires Node 20 or newer, `snub` 5.1.0 or newer and Redis.
 
 #### Usage
 
@@ -100,8 +100,7 @@ emits, the rest do nothing. The claim expires after `driftMs`, so an instance
 whose clock is out by less than that still finds it.
 
 Claims are kept under the snub `prefix`, apps with different prefixes can share
-a redis and a namespace. This needs `snub` 5.1.0 or newer, older versions do
-not expose their prefix and `snub:` is assumed with a warning.
+a redis and a namespace.
 
 #### Upgrading from 1.x
 

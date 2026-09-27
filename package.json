@@ -23,7 +23,7 @@
     "node": ">=20"
   },
   "peerDependencies": {
-    "snub": ">=5.0.0"
+    "snub": ">=5.1.0"
   },
   "devDependencies": {
     "prettier": "^2.3.1"
