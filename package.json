@@ -1,10 +1,13 @@
 {
   "name": "snub-cron",
-  "version": "1.0.4",
+  "version": "5.0.0",
   "description": "cron middleware for snub",
   "main": "snub-cron.js",
+  "files": [
+    "snub-cron.js"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cd ../snub-smoke && node run.js --tag cron"
   },
   "repository": {
     "type": "git",
@@ -16,11 +19,16 @@
     "url": "https://github.com/cokeeffekt/snub-cron/issues"
   },
   "homepage": "https://github.com/cokeeffekt/snub-cron#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "snub": ">=5.0.0"
+  },
   "devDependencies": {
-    "prettier": "^2.3.1",
-    "snub": "^3.0.1"
+    "prettier": "^2.3.1"
   },
   "dependencies": {
-    "node-cron": "^2.0.3"
+    "node-cron": "^4.6.0"
   }
 }
