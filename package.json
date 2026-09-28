@@ -14,7 +14,7 @@
     "url": "git+https://github.com/cokeeffekt/snub-cron.git"
   },
   "author": "Patrik Hartwig",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cokeeffekt/snub-cron/issues"
   },

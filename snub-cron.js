@@ -15,13 +15,6 @@ module.exports = function (config) {
     var closed = false;
 
     var prefix = snub.prefix;
-    if (typeof prefix !== 'string') {
-      // snub < 5.1.0 has no prefix getter
-      prefix = 'snub:';
-      console.warn(
-        '[snub-cron] snub.prefix is unavailable (snub < 5.1.0), assuming "snub:"'
-      );
-    }
 
     // Every instance sees the same scheduled time for a tick, so the first one
     // to claim it emits and the rest bail. The claim expires on its own.
